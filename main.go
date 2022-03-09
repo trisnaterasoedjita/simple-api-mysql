@@ -24,7 +24,7 @@ type reqStudents struct {
 }
 
 func connect() (*sql.DB, error) {
-	db, err := sql.Open("mysql", "mysql://bf5c0193720408:1f765ccc@us-cdbr-east-05.cleardb.net/heroku_db625cba41f288c")
+	db, err := sql.Open("mysql", "bf5c0193720408:1f765ccc@tcp(us-cdbr-east-05.cleardb.net3306)/heroku_db625cba41f288c")
 	if err != nil {
 		return nil, err
 	}
