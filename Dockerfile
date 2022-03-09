@@ -21,7 +21,6 @@ RUN apk add --no-cache tzdata
 #rsyslog supervisor
 RUN mkdir -p /usr/app/src
 COPY --from=builder /usr/app/simple-api-mysql /usr/app/simple-api-mysql
-COPY --from=builder /usr/app/.env /usr/app/.env
 
 RUN cp /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 WORKDIR /usr/app
