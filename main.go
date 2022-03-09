@@ -24,7 +24,7 @@ type reqStudents struct {
 }
 
 func connect() (*sql.DB, error) {
-	db, err := sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/golang_simple_api_mysql")
+	db, err := sql.Open("mysql", "root:s!mp3lAp1@tcp(materi-simple-golang-db:3309)/golang_simple_api_mysql")
 	if err != nil {
 		return nil, err
 	}
