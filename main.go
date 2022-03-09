@@ -24,7 +24,7 @@ type reqStudents struct {
 }
 
 func connect() (*sql.DB, error) {
-	db, err := sql.Open("mysql", "root:s!mp3lAp1@tcp(materi-simple-golang-db:3309)/golang_simple_api_mysql")
+	db, err := sql.Open("mysql", "mysql://bf5c0193720408:1f765ccc@us-cdbr-east-05.cleardb.net/heroku_db625cba41f288c")
 	if err != nil {
 		return nil, err
 	}
@@ -149,6 +149,6 @@ func studentAdd(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/students", studentList)
 	http.HandleFunc("/student", studentAdd)
-	fmt.Println("starting web server at http://localhost:4023/")
-	http.ListenAndServe(":4023", nil)
+	fmt.Println("starting web server at http://localhost:80/")
+	http.ListenAndServe(":80", nil)
 }
