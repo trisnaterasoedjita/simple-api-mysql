@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"os"
+	"log"
 
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -149,6 +151,10 @@ func studentAdd(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/students", studentList)
 	http.HandleFunc("/student", studentAdd)
-	fmt.Println("starting web server at http://localhost:80/")
-	http.ListenAndServe(":80", nil)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8000"
+	}
+
+	log.Fatal(http.ListenAndServe(":"+port, r))
 }
