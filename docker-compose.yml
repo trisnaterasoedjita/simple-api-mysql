@@ -1,0 +1,16 @@
+version: "4.0"
+services:
+  app:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    image: materi-simple-golang-api
+    container_name: materi-simple-golang-api
+    networks:
+        - materisimplegolang
+    ports:
+        - 4023:4023
+networks:
+  sidig:
+    driver: bridge
+    
