@@ -150,5 +150,5 @@ func main() {
 	http.HandleFunc("/students", studentList)
 	http.HandleFunc("/student", studentAdd)
 	fmt.Println("starting web server at http://localhost:8080/")
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":80", nil)
 }
