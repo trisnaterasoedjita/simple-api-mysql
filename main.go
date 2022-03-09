@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
-	"os"
-	"log"
+	//"os"
+	//"log"
 
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -26,7 +26,8 @@ type reqStudents struct {
 }
 
 func connect() (*sql.DB, error) {
-	db, err := sql.Open("mysql", "bf5c0193720408:1f765ccc@tcp(us-cdbr-east-05.cleardb.net:3306)/heroku_db625cba41f288c")
+	// db, err := sql.Open("mysql", "bf5c0193720408:1f765ccc@tcp(us-cdbr-east-05.cleardb.net:3306)/heroku_db625cba41f288c")
+	db, err := sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/golang_simple_api_mysql")
 	if err != nil {
 		return nil, err
 	}
@@ -151,10 +152,12 @@ func studentAdd(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/students", studentList)
 	http.HandleFunc("/student", studentAdd)
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8000"
-	}
+	// port := os.Getenv("PORT")
+	// if port == "" {
+	// 	port = "8080"
+	// }
 
-	log.Fatal(http.ListenAndServe(":"+port,nil))
+	// log.Fatal(http.ListenAndServe(":"+port,nil))
+	fmt.Println("starting web server at http://localhost:8080/")
+  	http.ListenAndServe(":8080", nil)
 }
